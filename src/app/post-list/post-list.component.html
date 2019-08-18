@@ -1,9 +1,14 @@
-<li [ngClass]="{'list-group-item': true,
-      'list-group-item-success': blogLoveIts > 0,
-      'list-group-item-danger': blogLoveIts < 0}">
-  <p class="pull-right">{{ blogCreationDate | date: 'short' }}</p>
-  <h2 [ngStyle]="{color: getColor(), fontWeight: 'bold'}">{{ blogTitle }}</h2>
-  <p [ngStyle]="{color: getColor()}">{{ blogContent }}</p>
-  <button class="btn btn-success" (click)="increment()">Love it!</button>
-  <button class="btn btn-danger" style="margin-left: 5px" (click)="decrement()">Don't love it!</button>
-</li>
+<div class="row">
+  <div class="col-xs-12">
+    <h2 [ngStyle]="{fontWeight: 'bold'}">Posts</h2>
+    <ul class="list-group">
+      <app-post-list-item *ngFor="let post of posts; let i = index"
+                     [postTitle]="post.title"
+                     [postContent]="post.content"
+                     [postCreationDate]="post.createdAt"
+                     [postToDelete]="post"
+                     [postIndex]="i"
+                     [postLoveIts]="post.loveIts"></app-post-list-item>
+    </ul>
+  </div>
+</div>
