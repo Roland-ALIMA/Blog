@@ -10,9 +10,12 @@ import {RouterModule, Routes} from '@angular/router';
 import { NewPostComponent } from './post-list/new-post/new-post.component';
 import {PostsService} from './services/posts.service';
 import {ReactiveFormsModule} from '@angular/forms';
+import { PostListItemDetailComponent } from './post-list/post-list-item/post-list-item-detail/post-list-item-detail.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const appRoutes: Routes = [
   {path: 'posts', component: PostListComponent},
+  {path: 'posts/details/:id', component: PostListItemDetailComponent},
   {path: 'new', component: NewPostComponent},
   {path: '', redirectTo: 'posts', pathMatch: 'full'},
   {path: '**', redirectTo: 'posts'},
@@ -24,12 +27,14 @@ const appRoutes: Routes = [
     PostListComponent,
     PostListItemComponent,
     HeaderComponent,
-    NewPostComponent
+    NewPostComponent,
+    PostListItemDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

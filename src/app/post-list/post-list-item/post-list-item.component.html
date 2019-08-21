@@ -1,19 +1,26 @@
 <li [ngClass]="{'list-group-item': true,
       'list-group-item-success': postLoveIts > 0,
-      'list-group-item-danger': postLoveIts < 0}">
-  <p class="pull-right">{{ postCreationDate }}</p>
-  <h2 [ngStyle]="{color: getColor(), fontWeight: 'bold'}">{{ postTitle }}</h2>
-  <p [ngStyle]="{color: getColor()}">{{ postContent }}</p>
-  <button class="btn btn-success" (click)="onLovePost()">
-    <span class="glyphicon glyphicon-thumbs-up"></span>
-    Love it!
-  </button>
-  <button class="btn btn-warning" style="margin-left: 5px" (click)="onDontLovePost()">
-    <span class="glyphicon glyphicon-thumbs-down"></span>
-    Don't love it!
-  </button>
-  <button class="btn btn-danger" style="margin-left: 5px" (click)="onDeletePost(postToDelete)">
-    <span class="glyphicon glyphicon-trash"></span>
-    Supprimer post
-  </button>
+      'list-group-item-danger': postLoveIts < 0,
+      'zoom': true}" style="cursor: pointer;" (click)="onSeeDetails(post)" title="Cliquer pour voir les détails">
+  <div class="form-group row">
+    <div class="col-md-1">
+      <img [src]="logoPath" alt="logo" style="width: 100%;">
+    </div>
+    <div class="col-md-11">
+      <p class="pull-right">{{ postCreationDate }}</p>
+      <h2 [ngStyle]="{color: getColor(), fontWeight: 'bold'}">{{ postTitle }}</h2>
+      <p [ngStyle]="{color: getColor()}"class="two-line-ellipsis" align="justify">{{ postContent }}</p>
+      <button class="btn btn-success" (click)="onLovePost()" title="J'aime ce post">
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+      </button>
+      <button class="btn btn-warning" style="margin-left: 5px" (click)="onDontLovePost()" title="J'aime pas ce post">
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+      </button>
+      <button class="btn btn-danger" style="margin-left: 5px" (click)="onDeletePost(post)" title="Supprimer ce post">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </div>
+  </div>
+
 </li>
+<br/>

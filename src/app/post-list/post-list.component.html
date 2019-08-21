@@ -2,13 +2,14 @@
   <div class="col-xs-12">
     <h2 [ngStyle]="{fontWeight: 'bold'}">Posts</h2>
     <ul class="list-group">
-      <app-post-list-item *ngFor="let post of posts; let i = index"
+      <app-post-list-item *ngFor="let post of posts | paginate: {itemsPerPage: 20, currentPage: p, totalItems: total}; let i = index"
                      [postTitle]="post.title"
                      [postContent]="post.content"
                      [postCreationDate]="post.createdAt"
-                     [postToDelete]="post"
+                     [post]="post"
                      [postIndex]="i"
                      [postLoveIts]="post.loveIts"></app-post-list-item>
     </ul>
+    <pagination-controls  (pageChange)="p = $event" align="center"></pagination-controls>
   </div>
 </div>

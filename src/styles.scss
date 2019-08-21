@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+.zoom {
+  padding: 25px;
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.02); /* IE 9 */
+  -webkit-transform: scale(1.02); /* Safari 3-8 */
+  transform: scale(1.02);
+  background-color: #e2e2e2;
+}
+
+.two-line-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 25px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

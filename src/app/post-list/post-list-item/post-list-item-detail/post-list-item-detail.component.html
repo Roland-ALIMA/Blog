@@ -1,0 +1,20 @@
+<div class="form-group row">
+  <div class="col-md-1">
+    <img [src]="logoPath" alt="logo" style="width: 100%;">
+  </div>
+  <div class="col-md-11">
+    <p class="pull-right">{{ post.createdAt }}</p>
+    <h2 [ngStyle]="{fontWeight: 'bold'}">{{ post.title }}</h2>
+    <p align="justify">{{ post.content }}</p>
+    <button class="btn btn-default" (click)="onBack()">Retour</button>
+    <button class="btn btn-success" style="margin-left: 5px" (click)="onLovePost()" title="J'aime ce post">
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+    </button>
+    <button class="btn btn-warning" style="margin-left: 5px" (click)="onDontLovePost()" title="J'aime pas ce post">
+      <span class="glyphicon glyphicon-thumbs-down"></span>
+    </button>
+    <button class="btn btn-danger" style="margin-left: 5px" (click)="onDeletePost(post)" title="Supprimer ce post">
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+  </div>
+</div>

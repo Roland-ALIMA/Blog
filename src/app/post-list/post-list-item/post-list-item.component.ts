@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../models/Post.model';
 import {PostsService} from '../../services/posts.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-list-item',
@@ -13,11 +14,12 @@ export class PostListItemComponent implements OnInit {
   @Input() postContent: string;
   @Input() postCreationDate: Date;
   @Input() postLoveIts: number;
-  @Input() postToDelete: Post;
   @Input() post: Post;
   @Input() postIndex: number;
+  logoPath = 'assets/images/default-logo.png';
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -42,5 +44,8 @@ export class PostListItemComponent implements OnInit {
     this.postsService.dontLovePost(this.postIndex);
   }
 
+  onSeeDetails(post: Post) {
+    this.router.navigate(['/posts', 'details', this.postIndex]);
+  }
 
 }

@@ -60,4 +60,19 @@ export class PostsService {
     this.emitPosts();
   }
 
+  getPostById(id: number) {
+    return new Promise(
+      (resolve, reject) => {
+        firebase.database().ref('/posts/' + id).once('value').then(
+          (data) => {
+            resolve(data.val());
+          },
+          (error) => {
+            reject(error);
+          }
+        );
+      }
+    );
+  }
+
 }

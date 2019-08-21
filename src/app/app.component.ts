@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations:[
+    trigger('fade',
+      [
+        state('void', style({ opacity : 0})),
+        transition(':enter',[ animate(300)]),
+        transition(':leave',[ animate(500)]),
+      ]
+    )]
 })
 export class AppComponent {
 
