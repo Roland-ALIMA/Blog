@@ -14,6 +14,8 @@ export class PostListItemComponent implements OnInit {
   @Input() postContent: string;
   @Input() postCreationDate: Date;
   @Input() postLoveIts: number;
+  @Input() postDontLoveIts: number;
+  @Input() postComments: number;
   @Input() post: Post;
   @Input() postIndex: number;
   logoPath = 'assets/images/default-logo.png';

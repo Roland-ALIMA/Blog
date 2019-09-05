@@ -1,31 +1,30 @@
-<div class="row">
-  <div class="col-sm-12 col-sm-offset-1">
-    <h2 class="col-sm-offset-2">Nouveau post</h2>
-    <br/>
-    <br/>
-    <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
-      <div class="form-group row">
-        <label class="col-md-2 text-right" for="title">Titre</label>
-        <div class="col-md-6">
-          <input id="title" type="text" class="form-control" formControlName="title">
-        </div>
+<mat-card>
+  <mat-card-title>Nouveau Post</mat-card-title>
+  <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
+    <div class="form-group row">
+      <div class="col-md-12">
+        <mat-form-field style="width: 100%;">
+          <input id="title" name="title" type="text" matInput ngModel placeholder="Titre du Post" formControlName="title" required>
+        </mat-form-field>
       </div>
-      <div class="form-group row">
-        <label class="col-md-2 text-right" for="content">Contenu</label>
-        <div class="col-md-6">
-          <textarea rows="5" id="content" type="text" class="form-control" formControlName="content"></textarea>
-        </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-12">
+        <mat-form-field style="width: 100%;">
+          <textarea id="content" rows="15" name="content" type="text" matInput ngModel placeholder="Contenu du Post" formControlName="content" required>
+          </textarea>
+        </mat-form-field>
       </div>
-      <div class="form-group row">
-        <label class="col-md-2 text-right"></label>
-        <div class="col-md-6">
-          <button class="btn btn-success" type="submit"
-                  [disabled]="postForm.invalid">
-            <span class="glyphicon glyphicon-send"></span>
-            Soumettre
-          </button>
-        </div>
+    </div>
+
+    <div class="form-group row" *ngIf="profile !== ''">
+      <div class="col-md-12">
+        <button class="btn btn-primary" type="submit" [disabled]="postForm.invalid" style="width: 100%">
+          <span class="glyphicon glyphicon-send"></span>
+          Soumettre
+        </button>
       </div>
-    </form>
-  </div>
-</div>
+    </div>
+  </form>
+</mat-card>

@@ -8,6 +8,8 @@
                      [postCreationDate]="post.createdAt"
                      [post]="post"
                      [postIndex]="i"
+                     [postDontLoveIts]="post.dontLoveIts"
+                     [postComments]="post.comments"
                      [postLoveIts]="post.loveIts"></app-post-list-item>
     </ul>
     <pagination-controls  (pageChange)="p = $event" align="center"></pagination-controls>

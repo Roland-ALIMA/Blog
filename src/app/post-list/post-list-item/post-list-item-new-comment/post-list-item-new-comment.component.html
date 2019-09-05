@@ -1,0 +1,15 @@
+<div >
+  <mat-dialog-content [formGroup]="form">
+
+    <mat-form-field style="width: 100%;">
+      <textarea matInput name="comment" rows="10" [(ngModel)]="comment" placeholder="Ajouter un commentaire" formControlName="comment"></textarea>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button class="btn btn-danger" (click)="close()">Fermer</button>
+    <button class="btn btn-success" style="margin-left: 5px" [disabled]="!comment" (click)="save()">Enregistrer</button>
+  </mat-dialog-actions>
+</div>
+

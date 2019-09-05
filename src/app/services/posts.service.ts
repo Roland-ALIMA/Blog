@@ -55,7 +55,7 @@ export class PostsService {
   }
 
   dontLovePost(index: number) {
-    --this.posts[index]['loveIts'];
+    ++this.posts[index]['dontLoveIts'];
     this.savePosts();
     this.emitPosts();
   }
