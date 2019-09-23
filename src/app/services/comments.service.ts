@@ -20,8 +20,8 @@ export class CommentsService {
 
   emitComments() {
     this.commentSubject.next(this.commentsFromDB);
-    const id = this.route.snapshot.params['id'];
-    this.getPostComments(this.commentsFromDB, id);
+    // const id = this.route.snapshot.params['id'];
+    // this.getPostComments(this.commentsFromDB, id);
   }
 
   getComments() {
@@ -42,11 +42,11 @@ export class CommentsService {
   }
 
   saveComments() {
-    firebase.database().ref('/comments').set(this.postsComments);
+    firebase.database().ref('/comments').set(this.commentsFromDB);
   }
 
   createNewComment(newComment: CommentModel) {
-    this.postsComments.push(newComment);
+    this.commentsFromDB.push(newComment);
     this.saveComments();
     this.emitComments();
   }

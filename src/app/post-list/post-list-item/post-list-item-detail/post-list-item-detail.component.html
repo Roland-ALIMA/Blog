@@ -28,7 +28,14 @@
       </button>
       <br/>
       <br/>
-      <app-post-list-item-comment></app-post-list-item-comment>
+      <br/>
+      <app-post-list-item-comment *ngFor="let comment of postComments; let i = index"
+                                  [commentContent]="comment.content"
+                                  [commentCommentAt]="comment.commentAt"
+                                  [commentLikeComment]="comment.likeComment"
+                                  [commentDontLikeComment]="comment.dontLikeComment"
+                                  [comment]="comment"
+                                  [commentIndex]="i"></app-post-list-item-comment>
       <br/>
       <br/>
     </div>

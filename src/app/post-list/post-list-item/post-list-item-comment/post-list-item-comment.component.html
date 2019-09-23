@@ -1,3 +1,27 @@
-<div class="col-md-8 pull-right">
-  <p>Ce post n'a pas encore de commentaires !</p>
+<div class="col-md-2"></div>
+<div class="col-md-10">
+  <div class="form-group row">
+    <div class="col-md-1">
+      <img [src]="logoPath" alt="logo" style="width: 100%; border-radius: 50%;">
+    </div>
+    <div class="col-md-11">
+      <p class="pull-left" style="font-style: italic;">Commentaire de Nom de l'auteur</p>
+      <p class="pull-right">{{ commentCommentAt }}</p>
+      <br/>
+      <br/>
+      <p align="justify">{{ commentContent }}</p>
+      <button class="btn btn-success" (click)="onLoveComment()" title="J'aime ce commentaire">
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        {{ commentLikeComment }}
+      </button>
+      <button class="btn btn-warning" style="margin-left: 5px" (click)="onDontLoveComment()" title="J'aime pas ce commentaire">
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+        {{ commentDontLikeComment }}
+      </button>
+      <button class="btn btn-danger" style="margin-left: 5px" (click)="onDeleteComment(comment)" title="Supprimer ce commentaire">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </div>
+  </div>
 </div>
+<hr>
